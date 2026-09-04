@@ -19,21 +19,28 @@ const MobileNav = ({ isOpen, onToggle, onClose }) => {
         </button>
       </div>
 
-      {isOpen && (
-        <div className="absolute top-full left-0 w-full md:hidden bg-card border-t border-border shadow-xl overflow-hidden">
+      <div
+        className={`absolute top-full left-0 w-full md:hidden bg-card border-t border-border shadow-xl grid transition-all duration-300 ease-out ${
+          isOpen
+            ? "grid-rows-[1fr] opacity-100"
+            : "grid-rows-[0fr] opacity-0 pointer-events-none"
+        }`}
+      >
+        <div className="overflow-hidden">
           <nav className="flex flex-col">
-            {navLinks.map((link) => (
+            {navLinks.map((link, index) => (
               <NavLink
                 key={link.to}
                 to={link.to}
                 end={link.to === "/"}
                 onClick={onClose}
+                style={{ transitionDelay: isOpen ? `${index * 40}ms` : "0ms" }}
                 className={({ isActive }) =>
-                  `group flex items-center justify-between px-6 py-4 text-[15px] font-medium border-b border-border transition-colors ${
+                  `group flex items-center justify-between px-6 py-4 text-[15px] font-medium border-b border-border transition-all duration-300 ${
                     isActive
                       ? "bg-foreground text-background"
                       : "bg-card text-foreground hover:bg-background"
-                  }`
+                  } ${isOpen ? "translate-y-0 opacity-100" : "-translate-y-1 opacity-0"}`
                 }
               >
                 <span>{link.label}</span>
@@ -44,7 +51,14 @@ const MobileNav = ({ isOpen, onToggle, onClose }) => {
               </NavLink>
             ))}
 
-            <div className="px-6 py-4 bg-background">
+            <div
+              className={`px-6 py-4 bg-background transition-all duration-300 ${
+                isOpen ? "translate-y-0 opacity-100" : "-translate-y-1 opacity-0"
+              }`}
+              style={{
+                transitionDelay: isOpen ? `${navLinks.length * 40}ms` : "0ms",
+              }}
+            >
               <Link
                 to="/dashboard"
                 onClick={onClose}
@@ -56,7 +70,7 @@ const MobileNav = ({ isOpen, onToggle, onClose }) => {
             </div>
           </nav>
         </div>
-      )}
+      </div>
     </>
   );
 };
