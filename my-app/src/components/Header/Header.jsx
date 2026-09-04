@@ -1,7 +1,6 @@
 import { useState } from "react";
 import Logo from "./Logo";
-import DesktopNav from "./DesktopNav";
-import DesktopActions from "./DesktopActions";
+import DesktopBar from "./DesktopBar";
 import MobileNav from "./MobileNav";
 
 const Header = () => {
@@ -15,8 +14,7 @@ const Header = () => {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center gap-6 lg:gap-8">
           <Logo onNavigate={closeMenu} />
-          <DesktopNav />
-          <DesktopActions />
+          <DesktopBar />
           <MobileNav isOpen={isOpen} onToggle={toggleMenu} onClose={closeMenu} />
         </div>
       </div>

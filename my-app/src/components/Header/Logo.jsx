@@ -1,9 +1,5 @@
 import { Link } from "react-router-dom";
 
-/**
- * Brand logo — isolated for reuse and teaching separation.
- * No mobile/desktop logic here.
- */
 const Logo = ({ onNavigate }) => {
   return (
     <Link

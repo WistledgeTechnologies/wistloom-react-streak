@@ -3,17 +3,9 @@ import { NavLink, Link } from "react-router-dom";
 import { navLinks } from "@/constants/navigation";
 import ThemeToggle from "@/components/ThemeToggle";
 
-/**
- * MobileNav — single responsibility for all mobile header concerns.
- * Teaching point: mobile toggle + menu live together, Header stays clean.
- * - isOpen / onToggle / onClose controlled by Header (so Logo can close it)
- * - ThemeToggle is co-located here because it's part of mobile actions
- * - Menu is absolute so it overlays below header without affecting flex layout
- */
 const MobileNav = ({ isOpen, onToggle, onClose }) => {
   return (
     <>
-      {/* Mobile actions — only visible on < md, pushed right */}
       <div className="flex md:hidden items-center gap-2 ml-auto">
         <ThemeToggle />
         <button
@@ -27,7 +19,6 @@ const MobileNav = ({ isOpen, onToggle, onClose }) => {
         </button>
       </div>
 
-      {/* Mobile dropdown — absolute overlay, hidden on desktop */}
       {isOpen && (
         <div className="absolute top-full left-0 w-full md:hidden border-t border-border bg-card shadow-lg">
           <nav className="mx-auto max-w-7xl px-4 py-4 flex flex-col gap-1">
