@@ -34,7 +34,7 @@
 
 @layer components {
   .logo {
-    @apply w-7 h-7 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 shadow-lg shadow-indigo-500/25
+    @apply w-8 h-8 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 shadow-lg shadow-indigo-500/25
   }
 
   .nav-link {
