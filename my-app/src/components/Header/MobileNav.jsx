@@ -81,7 +81,7 @@ const MobileNav = ({ isOpen, onToggle, onClose, isLoggedIn }) => {
 
             {isLoggedIn && (
               <div
-                className={`px-6 py-4 bg-background transition-all duration-300 ${
+                className={`flex px-6 py-4 bg-background transition-all duration-300 ${
                   isOpen ? "translate-y-0 opacity-100" : "-translate-y-1 opacity-0"
                 }`}
                 style={{
@@ -93,10 +93,10 @@ const MobileNav = ({ isOpen, onToggle, onClose, isLoggedIn }) => {
                 <Link
                   to="/dashboard"
                   onClick={onClose}
-                  className="flex w-full items-center justify-between rounded-full bg-blue-600 px-6 py-3 text-sm font-semibold text-white hover:bg-blue-700 transition-colors shadow-sm"
+                  className="inline-flex items-center justify-center gap-2 rounded-full bg-blue-600 px-6 py-3 text-sm font-semibold text-white hover:bg-blue-700 transition-colors shadow-sm"
                 >
                   <span>Dashboard</span>
-                  <ChevronRight size={18} className="shrink-0 opacity-80" />
+                  <ChevronRight size={16} className="shrink-0 opacity-80" />
                 </Link>
               </div>
             )}
