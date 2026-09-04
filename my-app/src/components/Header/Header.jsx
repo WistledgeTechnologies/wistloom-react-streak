@@ -2,9 +2,11 @@ import { useState } from "react";
 import Logo from "./Logo";
 import DesktopBar from "./DesktopBar";
 import MobileNav from "./MobileNav";
+import user from "@/data/userData";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const isLoggedIn = user?.isLoggedIn ?? false;
 
   const closeMenu = () => setIsOpen(false);
   const toggleMenu = () => setIsOpen((prev) => !prev);
@@ -14,8 +16,13 @@ const Header = () => {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center gap-6 lg:gap-8">
           <Logo onNavigate={closeMenu} />
-          <DesktopBar />
-          <MobileNav isOpen={isOpen} onToggle={toggleMenu} onClose={closeMenu} />
+          <DesktopBar isLoggedIn={isLoggedIn} />
+          <MobileNav
+            isOpen={isOpen}
+            onToggle={toggleMenu}
+            onClose={closeMenu}
+            isLoggedIn={isLoggedIn}
+          />
         </div>
       </div>
     </header>

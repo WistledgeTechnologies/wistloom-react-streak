@@ -3,7 +3,7 @@ import { NavLink, Link } from "react-router-dom";
 import { navLinks } from "@/constants/navigation";
 import ThemeToggle from "@/components/ThemeToggle";
 
-const MobileNav = ({ isOpen, onToggle, onClose }) => {
+const MobileNav = ({ isOpen, onToggle, onClose, isLoggedIn }) => {
   return (
     <>
       <div className="flex md:hidden items-center gap-2 ml-auto">
@@ -51,51 +51,55 @@ const MobileNav = ({ isOpen, onToggle, onClose }) => {
               </NavLink>
             ))}
 
-            <div
-              className={`grid grid-cols-2 gap-3 px-6 py-4 bg-card border-b border-border transition-all duration-300 ${
-                isOpen ? "translate-y-0 opacity-100" : "-translate-y-1 opacity-0"
-              }`}
-              style={{
-                transitionDelay: isOpen ? `${navLinks.length * 40}ms` : "0ms",
-              }}
-            >
-              <Link
-                to="/login"
-                onClick={onClose}
-                className="flex items-center justify-center gap-1.5 rounded-full border border-border bg-background px-4 py-3 text-sm font-medium text-foreground hover:bg-card transition-colors"
+            {!isLoggedIn && (
+              <div
+                className={`grid grid-cols-2 gap-3 px-6 py-4 bg-card border-b border-border transition-all duration-300 ${
+                  isOpen ? "translate-y-0 opacity-100" : "-translate-y-1 opacity-0"
+                }`}
+                style={{
+                  transitionDelay: isOpen ? `${navLinks.length * 40}ms` : "0ms",
+                }}
               >
-                Log in
-                <ChevronRight size={16} className="shrink-0 opacity-60" />
-              </Link>
-              <Link
-                to="/signup"
-                onClick={onClose}
-                className="flex items-center justify-center gap-1.5 rounded-full border border-foreground bg-foreground px-4 py-3 text-sm font-medium text-background hover:opacity-90 transition-opacity"
-              >
-                Sign up
-                <ChevronRight size={16} className="shrink-0 opacity-60" />
-              </Link>
-            </div>
+                <Link
+                  to="/login"
+                  onClick={onClose}
+                  className="flex items-center justify-center gap-1.5 rounded-full border border-border bg-background px-4 py-3 text-sm font-medium text-foreground hover:bg-card transition-colors"
+                >
+                  Log in
+                  <ChevronRight size={16} className="shrink-0 opacity-60" />
+                </Link>
+                <Link
+                  to="/signup"
+                  onClick={onClose}
+                  className="flex items-center justify-center gap-1.5 rounded-full border border-foreground bg-foreground px-4 py-3 text-sm font-medium text-background hover:opacity-90 transition-opacity"
+                >
+                  Sign up
+                  <ChevronRight size={16} className="shrink-0 opacity-60" />
+                </Link>
+              </div>
+            )}
 
-            <div
-              className={`px-6 py-4 bg-background transition-all duration-300 ${
-                isOpen ? "translate-y-0 opacity-100" : "-translate-y-1 opacity-0"
-              }`}
-              style={{
-                transitionDelay: isOpen
-                  ? `${(navLinks.length + 1) * 40}ms`
-                  : "0ms",
-              }}
-            >
-              <Link
-                to="/dashboard"
-                onClick={onClose}
-                className="flex w-full items-center justify-between rounded-full bg-blue-600 px-6 py-3 text-sm font-semibold text-white hover:bg-blue-700 transition-colors shadow-sm"
+            {isLoggedIn && (
+              <div
+                className={`px-6 py-4 bg-background transition-all duration-300 ${
+                  isOpen ? "translate-y-0 opacity-100" : "-translate-y-1 opacity-0"
+                }`}
+                style={{
+                  transitionDelay: isOpen
+                    ? `${navLinks.length * 40}ms`
+                    : "0ms",
+                }}
               >
-                <span>Dashboard</span>
-                <ChevronRight size={18} className="shrink-0 opacity-80" />
-              </Link>
-            </div>
+                <Link
+                  to="/dashboard"
+                  onClick={onClose}
+                  className="flex w-full items-center justify-between rounded-full bg-blue-600 px-6 py-3 text-sm font-semibold text-white hover:bg-blue-700 transition-colors shadow-sm"
+                >
+                  <span>Dashboard</span>
+                  <ChevronRight size={18} className="shrink-0 opacity-80" />
+                </Link>
+              </div>
+            )}
           </nav>
         </div>
       </div>
