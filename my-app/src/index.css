@@ -53,8 +53,4 @@
   .nav-link-active {
     @apply text-foreground;
   }
-
-  .nav-link-active::after {
-    @apply scale-x-100;
-  }
 }
