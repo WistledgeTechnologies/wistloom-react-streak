@@ -36,4 +36,25 @@
   .logo {
     @apply w-9 h-9 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 shadow-lg shadow-indigo-500/25
   }
+
+  .nav-link {
+    @apply relative px-3 py-2 text-sm font-medium text-muted transition-colors hover:text-foreground whitespace-nowrap;
+  }
+
+  .nav-link::after {
+    content: "";
+    @apply absolute bottom-0 left-3 right-3 h-0.5 bg-foreground scale-x-0 transition-transform duration-300 origin-left;
+  }
+
+  .nav-link:hover::after {
+    @apply scale-x-100;
+  }
+
+  .nav-link-active {
+    @apply text-foreground;
+  }
+
+  .nav-link-active::after {
+    @apply scale-x-100;
+  }
 }

@@ -5,18 +5,14 @@ import ThemeToggle from "@/components/ThemeToggle";
 const DesktopBar = ({ isLoggedIn }) => {
   return (
     <>
-      <nav className="hidden md:flex flex-1 items-center justify-center gap-1.5">
+      <nav className="hidden md:flex flex-1 items-center justify-center gap-6">
         {navLinks.map((link) => (
           <NavLink
             key={link.to}
             to={link.to}
             end={link.to === "/"}
             className={({ isActive }) =>
-              `px-4 py-2 rounded-full text-sm font-medium transition-colors whitespace-nowrap ${
-                isActive
-                  ? "bg-foreground text-background shadow-sm"
-                  : "text-muted hover:text-foreground hover:bg-background"
-              }`
+              `nav-link ${isActive ? "nav-link-active" : ""}`
             }
           >
             {link.label}
