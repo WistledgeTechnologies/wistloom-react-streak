@@ -29,13 +29,13 @@ const DesktopBar = () => {
         <ThemeToggle />
         <Link
           to="/login"
-          className="px-5 py-2.5 rounded-full text-sm font-medium text-muted hover:text-foreground hover:bg-background transition-colors whitespace-nowrap"
+          className="inline-flex items-center justify-center rounded-full border border-border bg-background px-6 py-2.5 text-sm font-medium text-foreground hover:bg-card transition-colors whitespace-nowrap"
         >
           Log in
         </Link>
         <Link
           to="/signup"
-          className="rounded-full bg-foreground px-6 py-2.5 text-sm font-semibold text-background hover:opacity-90 transition-opacity shadow-sm whitespace-nowrap"
+          className="inline-flex items-center justify-center rounded-full border border-foreground bg-foreground px-6 py-2.5 text-sm font-medium text-background hover:opacity-90 transition-opacity whitespace-nowrap"
         >
           Sign up
         </Link>

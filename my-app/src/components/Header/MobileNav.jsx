@@ -70,10 +70,10 @@ const MobileNav = ({ isOpen, onToggle, onClose }) => {
               <Link
                 to="/signup"
                 onClick={onClose}
-                className="flex items-center justify-center gap-1.5 rounded-full bg-foreground px-4 py-3 text-sm font-semibold text-background hover:opacity-90 transition-opacity shadow-sm"
+                className="flex items-center justify-center gap-1.5 rounded-full border border-foreground bg-foreground px-4 py-3 text-sm font-medium text-background hover:opacity-90 transition-opacity"
               >
                 Sign up
-                <ChevronRight size={16} className="shrink-0 opacity-80" />
+                <ChevronRight size={16} className="shrink-0 opacity-60" />
               </Link>
             </div>
 
