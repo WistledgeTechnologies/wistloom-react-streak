@@ -51,39 +51,31 @@ const MobileNav = ({ isOpen, onToggle, onClose }) => {
               </NavLink>
             ))}
 
-            <Link
-              to="/login"
-              onClick={onClose}
+            <div
+              className={`grid grid-cols-2 gap-3 px-6 py-4 bg-card border-b border-border transition-all duration-300 ${
+                isOpen ? "translate-y-0 opacity-100" : "-translate-y-1 opacity-0"
+              }`}
               style={{
                 transitionDelay: isOpen ? `${navLinks.length * 40}ms` : "0ms",
               }}
-              className={`group flex items-center justify-between px-6 py-4 text-[15px] font-medium border-b border-border bg-card text-foreground hover:bg-background transition-all duration-300 ${
-                isOpen ? "translate-y-0 opacity-100" : "-translate-y-1 opacity-0"
-              }`}
             >
-              <span>Log in</span>
-              <ChevronRight
-                size={18}
-                className="shrink-0 opacity-40 group-hover:opacity-100 transition-opacity"
-              />
-            </Link>
-
-            <Link
-              to="/signup"
-              onClick={onClose}
-              style={{
-                transitionDelay: isOpen ? `${(navLinks.length + 1) * 40}ms` : "0ms",
-              }}
-              className={`group flex items-center justify-between px-6 py-4 text-[15px] font-medium border-b border-border bg-card text-foreground hover:bg-background transition-all duration-300 ${
-                isOpen ? "translate-y-0 opacity-100" : "-translate-y-1 opacity-0"
-              }`}
-            >
-              <span>Sign up</span>
-              <ChevronRight
-                size={18}
-                className="shrink-0 opacity-40 group-hover:opacity-100 transition-opacity"
-              />
-            </Link>
+              <Link
+                to="/login"
+                onClick={onClose}
+                className="flex items-center justify-center gap-1.5 rounded-full border border-border bg-background px-4 py-3 text-sm font-medium text-foreground hover:bg-card transition-colors"
+              >
+                Log in
+                <ChevronRight size={16} className="shrink-0 opacity-60" />
+              </Link>
+              <Link
+                to="/signup"
+                onClick={onClose}
+                className="flex items-center justify-center gap-1.5 rounded-full bg-foreground px-4 py-3 text-sm font-semibold text-background hover:opacity-90 transition-opacity shadow-sm"
+              >
+                Sign up
+                <ChevronRight size={16} className="shrink-0 opacity-80" />
+              </Link>
+            </div>
 
             <div
               className={`px-6 py-4 bg-background transition-all duration-300 ${
@@ -91,7 +83,7 @@ const MobileNav = ({ isOpen, onToggle, onClose }) => {
               }`}
               style={{
                 transitionDelay: isOpen
-                  ? `${(navLinks.length + 2) * 40}ms`
+                  ? `${(navLinks.length + 1) * 40}ms`
                   : "0ms",
               }}
             >
