@@ -1,4 +1,4 @@
-import { Menu, X } from "lucide-react";
+import { Menu, X, ChevronRight } from "lucide-react";
 import { NavLink, Link } from "react-router-dom";
 import { navLinks } from "@/constants/navigation";
 import ThemeToggle from "@/components/ThemeToggle";
@@ -20,8 +20,8 @@ const MobileNav = ({ isOpen, onToggle, onClose }) => {
       </div>
 
       {isOpen && (
-        <div className="absolute top-full left-0 w-full md:hidden border-t border-border bg-card shadow-lg">
-          <nav className="mx-auto max-w-7xl px-4 py-4 flex flex-col gap-1">
+        <div className="absolute top-full left-0 w-full md:hidden bg-card border-t border-border shadow-xl overflow-hidden">
+          <nav className="flex flex-col">
             {navLinks.map((link) => (
               <NavLink
                 key={link.to}
@@ -29,24 +29,29 @@ const MobileNav = ({ isOpen, onToggle, onClose }) => {
                 end={link.to === "/"}
                 onClick={onClose}
                 className={({ isActive }) =>
-                  `px-3 py-3 rounded-lg text-sm font-medium transition-colors ${
+                  `group flex items-center justify-between px-6 py-4 text-[15px] font-medium border-b border-border transition-colors ${
                     isActive
                       ? "bg-foreground text-background"
-                      : "text-muted hover:text-foreground hover:bg-background"
+                      : "bg-card text-foreground hover:bg-background"
                   }`
                 }
               >
-                {link.label}
+                <span>{link.label}</span>
+                <ChevronRight
+                  size={18}
+                  className="shrink-0 opacity-40 group-hover:opacity-100 transition-opacity"
+                />
               </NavLink>
             ))}
 
-            <div className="mt-3 border-t border-border pt-4">
+            <div className="px-6 py-4 bg-background">
               <Link
                 to="/dashboard"
                 onClick={onClose}
-                className="flex w-full items-center justify-center rounded-full bg-blue-600 px-5 py-3 text-sm font-semibold text-white hover:bg-blue-700 transition-colors shadow-sm"
+                className="flex w-full items-center justify-between rounded-full bg-blue-600 px-6 py-3 text-sm font-semibold text-white hover:bg-blue-700 transition-colors shadow-sm"
               >
-                Dashboard
+                <span>Dashboard</span>
+                <ChevronRight size={18} className="shrink-0 opacity-80" />
               </Link>
             </div>
           </nav>
