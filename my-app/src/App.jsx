@@ -1,4 +1,4 @@
-import Button from "./components/Button";
+import Button from "./components/ui/Button";
 import ThemeToggle from "./components/ThemeToggle";
 import UserCard from "./components/cards/UserCard";
 import { useEffect, useState } from "react";

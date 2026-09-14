@@ -12,6 +12,9 @@ import Dashboard from "@/pages/dashboard";
 import NotFound from "@/pages/NotFound";
 import ProtectedRoutes from "@//components/ProtectedRoutes";
 import user from "@//data/userData";
+import AuthLayout from "../layouts/AuthLayout";
+import SignUp from "../pages/auth/sign-up";
+import SignIn from "../pages/auth/sign-in";
 
 
 const router = createBrowserRouter([
@@ -40,6 +43,19 @@ const router = createBrowserRouter([
           {
             path: "pricing",
             element: <Pricing />,
+          },
+        ],
+      },
+      {
+        element: <AuthLayout />,
+        children: [
+          {
+            path: "signup",
+            element: <SignUp />,
+          },
+          {
+            path: "signin",
+            element: <SignIn />,
           },
         ],
       },

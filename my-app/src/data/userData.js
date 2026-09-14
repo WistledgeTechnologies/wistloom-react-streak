@@ -2,9 +2,8 @@ const user = {
     name: "Victor Tamunoibuomi",
     age: 40,
     email: "victortamunoibuomi07@gmail.com",
-    isLoggedIn: true
+    isLoggedIn: false
 }
 
-localStorage.setItem("user", JSON.stringify(user))
 
 export default user;
