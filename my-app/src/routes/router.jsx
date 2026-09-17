@@ -14,7 +14,9 @@ import NotFound from "@/pages/NotFound";
 import SignIn from "@/pages/auth/sign-in";
 import SignUp from "@/pages/auth/sign-up";
 import ProtectedRoutes from "@//components/ProtectedRoutes";
-import user from "@//data/userData";
+import AuthLayout from "../layouts/AuthLayout";
+import SignUp from "../pages/auth/sign-up";
+import SignIn from "../pages/auth/sign-in";
 
 
 const router = createBrowserRouter([
@@ -50,6 +52,7 @@ const router = createBrowserRouter([
         element: <AuthLayout />,
         children: [
           {
+<<<<<<< HEAD
             path: "login",
             element: <SignIn />,
           },
@@ -58,17 +61,28 @@ const router = createBrowserRouter([
             element: <SignIn />,
           },
           {
+=======
+>>>>>>> 1aa0f2299e182add3a7752134ed875409dda4f40
             path: "signup",
             element: <SignUp />,
           },
           {
+<<<<<<< HEAD
             path: "sign-up",
             element: <SignUp />,
+=======
+            path: "signin",
+            element: <SignIn />,
+>>>>>>> 1aa0f2299e182add3a7752134ed875409dda4f40
           },
         ],
       },
       {
+<<<<<<< HEAD
         element: <ProtectedRoutes user={user}/>,
+=======
+        element: <ProtectedRoutes />,
+>>>>>>> 1aa0f2299e182add3a7752134ed875409dda4f40
         children: [
             {
             element: <DashboardLayout />,

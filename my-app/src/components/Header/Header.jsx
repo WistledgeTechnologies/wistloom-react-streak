@@ -2,11 +2,11 @@ import { useState } from "react";
 import Logo from "./Logo";
 import DesktopBar from "./DesktopBar";
 import MobileNav from "./MobileNav";
-import user from "@/data/userData";
+import { useAuth } from "@/hooks/useAuth";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const isLoggedIn = user?.isLoggedIn ?? false;
+  const { isLoggedIn } = useAuth();
 
   const closeMenu = () => setIsOpen(false);
   const toggleMenu = () => setIsOpen((prev) => !prev);

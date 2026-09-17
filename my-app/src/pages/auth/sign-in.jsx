@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import TextInput from "@/components/forms/TextInput";
@@ -184,3 +185,20 @@ const SignIn = () => {
 };
 
 export default SignIn;
+=======
+
+const SignIn = () => {
+
+  const [formData, setFormData] = useState({
+    fullName: "",
+    email: "",
+    password: "",
+    confirm: ""
+  })
+  return (
+    <div>SignIn</div>
+  )
+}
+
+export default SignIn
+>>>>>>> 1aa0f2299e182add3a7752134ed875409dda4f40

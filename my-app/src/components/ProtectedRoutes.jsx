@@ -1,9 +1,15 @@
 import { Navigate, Outlet } from "react-router-dom"
+import { useAuth } from "@/hooks/useAuth"
 
-const ProtectedRoutes = ( { user }) => {
+const ProtectedRoutes = () => {
+    const { isLoggedIn, isLoading } = useAuth();
 
-    if(!user.isLoggedIn) {
-        return <Navigate to="/login" replace  />;
+    if (isLoading) {
+        return null;
+    }
+
+    if (!isLoggedIn) {
+        return <Navigate to="/signin" replace />;
     }
 
     return <Outlet />
