@@ -5,6 +5,5 @@ const user = {
     isLoggedIn: true
 }
 
-localStorage.setItem("user", JSON.stringify(user))
 
 export default user;

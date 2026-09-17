@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import RootLayout from "@/layouts/RootLayout";
 import PublicLayout from "@/layouts/PublicLayout";
 import DashboardLayout from "@/layouts/DashboardLayout";
+import AuthLayout from "@/layouts/AuthLayout";
 
 import Home from "@/pages/home";
 import About from "@/pages/about";
@@ -10,6 +11,8 @@ import Services from "@/pages/services";
 import Pricing from "@/pages/pricing";
 import Dashboard from "@/pages/dashboard";
 import NotFound from "@/pages/NotFound";
+import SignIn from "@/pages/auth/sign-in";
+import SignUp from "@/pages/auth/sign-up";
 import ProtectedRoutes from "@//components/ProtectedRoutes";
 import user from "@//data/userData";
 
@@ -40,6 +43,27 @@ const router = createBrowserRouter([
           {
             path: "pricing",
             element: <Pricing />,
+          },
+        ],
+      },
+      {
+        element: <AuthLayout />,
+        children: [
+          {
+            path: "login",
+            element: <SignIn />,
+          },
+          {
+            path: "sign-in",
+            element: <SignIn />,
+          },
+          {
+            path: "signup",
+            element: <SignUp />,
+          },
+          {
+            path: "sign-up",
+            element: <SignUp />,
           },
         ],
       },
