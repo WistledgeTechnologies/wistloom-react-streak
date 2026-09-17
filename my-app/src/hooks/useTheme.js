@@ -5,7 +5,7 @@ import { useContext } from "react"
 export const useTheme = () => {
     const context = useContext(ThemeContext)
     if(context === undefined){
-        throw new Error("useTheme is supposed ti be within a Provider")
+        throw new Error("useTheme is supposed to be within a Provider")
     }
 
     return context;
